@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { useAuth } from '@/contexts/AuthContext'
 
 export default function AuthModal() {
@@ -71,12 +72,14 @@ export default function AuthModal() {
                 <div className="bg-slate-900/90 border border-white/10 rounded-3xl p-8 backdrop-blur-xl shadow-2xl">
                     {/* Logo */}
                     <div className="text-center mb-8">
-                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 mb-4 shadow-lg shadow-purple-500/30">
-                            <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M12 2L2 7L12 12L22 7L12 2Z" />
-                                <path d="M2 17L12 22L22 17" />
-                                <path d="M2 12L12 17L22 12" />
-                            </svg>
+                        <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white mb-4 shadow-lg shadow-purple-500/30">
+                            <Image
+                                src="/logo.png"
+                                alt="Axorra Logo"
+                                width={60}
+                                height={60}
+                                className="object-contain"
+                            />
                         </div>
                         <h1 className="text-3xl font-bold tracking-wider bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
                             AXORRA
@@ -89,8 +92,8 @@ export default function AuthModal() {
                         <button
                             onClick={() => { setMode('login'); setError(null); setSuccess(null); }}
                             className={`flex-1 py-3 rounded-lg font-medium transition-all ${mode === 'login'
-                                    ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg'
-                                    : 'text-slate-400 hover:text-white'
+                                ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg'
+                                : 'text-slate-400 hover:text-white'
                                 }`}
                         >
                             Sign In
@@ -98,8 +101,8 @@ export default function AuthModal() {
                         <button
                             onClick={() => { setMode('signup'); setError(null); setSuccess(null); }}
                             className={`flex-1 py-3 rounded-lg font-medium transition-all ${mode === 'signup'
-                                    ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg'
-                                    : 'text-slate-400 hover:text-white'
+                                ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg'
+                                : 'text-slate-400 hover:text-white'
                                 }`}
                         >
                             Sign Up

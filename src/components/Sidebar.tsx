@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useAuth } from '@/contexts/AuthContext'
 
@@ -51,12 +52,14 @@ export default function Sidebar() {
             {/* Logo */}
             <div className="p-6 border-b border-white/10">
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-500/30">
-                        <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M12 2L2 7L12 12L22 7L12 2Z" />
-                            <path d="M2 17L12 22L22 17" />
-                            <path d="M2 12L12 17L22 12" />
-                        </svg>
+                    <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-lg shadow-purple-500/30">
+                        <Image
+                            src="/logo.png"
+                            alt="Axorra Logo"
+                            width={32}
+                            height={32}
+                            className="object-contain"
+                        />
                     </div>
                     <span className="text-xl font-bold tracking-widest bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
                         AXORRA
@@ -73,8 +76,8 @@ export default function Sidebar() {
                             key={item.href}
                             href={item.href}
                             className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all ${isActive
-                                    ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg shadow-purple-500/30'
-                                    : 'text-slate-400 hover:text-white hover:bg-white/5'
+                                ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg shadow-purple-500/30'
+                                : 'text-slate-400 hover:text-white hover:bg-white/5'
                                 }`}
                         >
                             {item.icon}
