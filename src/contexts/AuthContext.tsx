@@ -50,9 +50,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             password,
             options: { data: { full_name: fullName } }
         })
+        // Explicitly return boolean to satisfy TypeScript
+        const needsConfirmation = !error && data.user && !data.session ? true : false
         return {
             error,
-            needsConfirmation: !error && data.user && !data.session
+            needsConfirmation
         }
     }
 
